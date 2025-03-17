@@ -32,6 +32,9 @@ public class Product {
     @OneToMany(mappedBy = "product")
     private List<InventoryProduct> inventories;
 
+    @OneToMany(mappedBy = "product")
+    private List<ShoppingListProduct> shoppingLists;
+
     public Product() {
         this.createdAt = LocalDateTime.now();
     }
@@ -130,5 +133,13 @@ public class Product {
 
     public void setInventories(List<InventoryProduct> inventories) {
         this.inventories = inventories;
+    }
+
+    public List<ShoppingListProduct> getShoppingLists() {
+        return shoppingLists;
+    }
+
+    public void setShoppingLists(List<ShoppingListProduct> shoppingLists) {
+        this.shoppingLists = shoppingLists;
     }
 }
