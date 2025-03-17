@@ -3,6 +3,7 @@ package com.github.dedoFinger2.Kwise.Model;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class Product {
@@ -27,6 +28,9 @@ public class Product {
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    @OneToMany(mappedBy = "product")
+    private List<InventoryProduct> inventories;
 
     public Product() {
         this.createdAt = LocalDateTime.now();
@@ -118,5 +122,13 @@ public class Product {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public List<InventoryProduct> getInventories() {
+        return inventories;
+    }
+
+    public void setInventories(List<InventoryProduct> inventories) {
+        this.inventories = inventories;
     }
 }
