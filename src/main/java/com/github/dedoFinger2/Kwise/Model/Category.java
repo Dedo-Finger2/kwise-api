@@ -5,16 +5,17 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "categories")
 public class Category {
     @Id
     // Estratégia = O banco que vai gerar os IDs
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private Long id;
 
     @Column(length = 200, nullable = false, unique = true)
     private String name;
 
-    @Column(nullable = true)
     private String description;
 
     @Column(name = "created_at", nullable = false)
