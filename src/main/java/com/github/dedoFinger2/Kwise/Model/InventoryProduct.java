@@ -6,9 +6,11 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "inventory_products")
 public class InventoryProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private Long id;
 
     @ManyToOne
@@ -22,6 +24,7 @@ public class InventoryProduct {
     @Column(nullable = false)
     private double quantity;
 
+    @Column(name = "valid_until")
     private LocalDate validUtil;
 
     @Column(name = "created_at", nullable = false)
