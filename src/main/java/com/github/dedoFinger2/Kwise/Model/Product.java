@@ -6,9 +6,11 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
+@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private Long id;
 
     @Column(length = 200, nullable = false, unique = true)
@@ -16,14 +18,16 @@ public class Product {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
     @Column(name = "min_quantity")
     private double minQuantity;
+
+    @Column(nullable = false)
     private int perishable;
 
-    @Column(name = "created_at")
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at")

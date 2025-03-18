@@ -3,9 +3,11 @@ package com.github.dedoFinger2.Kwise.Model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "completed_shopping_list_products")
 public class CompletedShoppingListProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private Long id;
 
     @ManyToOne
